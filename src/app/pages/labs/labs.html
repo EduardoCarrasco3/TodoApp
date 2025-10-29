@@ -3,27 +3,29 @@
   <ul>
     <li *ngFor="let task of tasks">{{task}}</li>
   </ul>
-  <br/>
+  <br />
 
   <h2>{{ 'Hola!'.repeat(4) }}</h2>
   <p>la suma de 3 + 3 = {{ 3 + 3 }}</p>
-  <p>Hola soy {{ name }} y tengo {{ age }}</p>
-  <br/>
+  <p>Hola soy {{ name() }} y tengo {{ age }}</p>
+  <br />
 
   <img [src]='person.avatar' alt="">
   <input type="text" [value]='person.age' />
   <button [disabled]='diasbled'>Click me</button>
-  <br/>
+  <br />
 
   <p>person: {{person.name}}</p>
-  <br/>
+  <br />
 
   <button (click)="clickHandler()">Click me!</button>
   <button (dblclick)="clickHandler()">double me!</button>
   <p>(change)</p>
-  <input type="number" [value]='person.age' (change)="inputHandler($event)"/>
+  <input type="number" [value]='person.age' (change)="inputHandler($event)" />
   <p>(keydown)</p>
-  <input type="text" [value]='person.name' (keydown)="keydownHandler($event)"/>
+  <input type="text" [value]='person.name' (keydown)="keydownHandler($event)" />
+  <br />
   <h1>Signals</h1>
-  
+  <input type="test" [value]='name()' (change)="inputHandler($event)" />
+  <p>name: {{name()}}</p>
 </div>

@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { signal } from '@angular/core'
 
 @Component({
   selector: 'app-labs',
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule],
   templateUrl: './labs.html',
   styleUrl: './labs.css',
 })
 export class Labs {
   welcome = 'Bienvenido 👌';
 
-  tasks = ['Instalar Angular CLI', 
-    'Crear Proyecto', 
-    'Crear Componente', 
+  tasks = ['Instalar Angular CLI',
+    'Crear Proyecto',
+    'Crear Componente',
     'Crear Servicio'
   ]
   name = signal('Eduardo');
@@ -23,15 +23,17 @@ export class Labs {
   person = {
     name: 'Eduardo',
     age: '18',
-    avatar:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Spider-Man.jpg/1200px-Spider-Man.jpg' 
+    avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Spider-Man.jpg/1200px-Spider-Man.jpg'
   }
-  clickHandler(){
+  clickHandler() {
     alert('Hola!');
   }
-  inputHandler(event: Event){
-    console.log(event);
+  inputHandler(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.name.set(newValue);
   }
-  keydownHandler(event: KeyboardEvent){
+  keydownHandler(event: KeyboardEvent) {
     const input = event.target as HTMLInputElement;
     console.log(input.value);
   }
